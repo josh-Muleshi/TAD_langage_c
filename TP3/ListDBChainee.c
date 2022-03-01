@@ -8,11 +8,8 @@ curseur creerCellule(char x){
         c->val = x;
         c->suivant = NULL;
         c->precedant = NULL;
-        return c;
-    }else
-    {
-        return NULL;
     }
+    return c;
 }
 
 char valeur(curseur c){
@@ -51,12 +48,47 @@ ListDC creerListeDC(){
 }
 
 void inserTete(ListDC l, char x){
-        if (l != NULL) /* On vérifie si notre liste a été allouée */
+    
+    
+    curseur cel = creerCellule(x);
+    cel->suivant = l->premier;
+    l->premier = cel;
+    l->cle = cel;
+    l->size++;
+    if (l->size == 1)
+    {
+        l->dernier = cel;
+    }
+    
+}
+
+void inserApres(ListDC l, char x){
+    curseur cel = creerCellule(x);
+    cel->suivant = l->cle->suivant;
+    cel->precedant = l->cle;
+    l->cle->suivant = cel;
+    if(cel->suivant != NULL)
+        cel->suivant->precedant = cel;
+    else
+        l->dernier = cel;
+    l->size++;
+    
+}
+void inserQueue(ListDC l, char x){
+    curseur cel = creerCellule(x);
+    cel->suivant = l->dernier;
+    l->dernier = cel;
+    l->cle = cel;
+    l->size++;
+}
+
+void r(ListDC l){
+    if (l != NULL) /* On vérifie si notre liste a été allouée */
     {
         curseur c = malloc(sizeof *c); /* Création d'un nouveau node */
         if (c != NULL) /* On vérifie si le malloc n'a pas échoué */
         {
-            c->val = x; /* On 'enregistre' notre donnée */
+            c->val = 0; /* On 'enregistre' notre donnée */
             c->suivant = NULL; /* On fait pointer p_next vers NULL */
             if (l->dernier == NULL) /* Cas où notre liste est vide (pointeur vers fin de liste à  NULL) */
             {
