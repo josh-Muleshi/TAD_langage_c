@@ -84,17 +84,22 @@ void rendreCelluleA(listSC *L, curseur p ){
 void supprimeEnTete(listSC *L){
     curseur idSup = L->tab[L->cle].idSuiv;
     curseur n = L->tab[idSup].idSuiv;
-    L->premier = idSup;
+    /*L->premier = idSup;
     L->tab[L->cle].idSuiv = n;
-    L->taille--;
-    rendreCelluleA(L, L->premier);
+    L->taille--;*/
+    rendreCelluleA(L, n);
+    L->cle = L->premier;
 }
 
 void supprimeApres(listSC *L){
     curseur idSup = L->tab[L->cle].idSuiv;
     curseur n = L->tab[idSup].idSuiv;
     L->tab[L->cle].idSuiv = n;
-    L->taille--;
     rendreCelluleA(L, idSup);
+    L->taille--;
+}
+
+int listePleine(listSC *L){
+    return L->taille == TAILLEMaX;
 }
 
