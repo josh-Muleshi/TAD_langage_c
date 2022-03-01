@@ -1,4 +1,4 @@
-#include "interfaceListeSC.c"
+#include "utilitaire.c"
 
 int main(){
 
@@ -13,7 +13,18 @@ int main(){
     insereApres(&liste, 'w');
     insereEnTete(&liste, 'A');
 
-    supprimeEnTete(&liste);
+    afficherListe(&liste);
+    printf("\n\n");
+
+    listSC b = tranStrToLSC("mamam");
+    afficherListe(&b);
+    printf("\n\n");
+
+    listSC a = supOcc("mamam", 'a');
+    afficherListe(&a);
+    printf("\n\n");
+
+    /*supprimeEnTete(&liste);
     
     printf("taille : %d\n", liste.taille);
     printf("premier : %d\n", liste.premier);
@@ -22,6 +33,6 @@ int main(){
     printf("val : %c\n", liste.tab[liste.premier].val);
     int i = liste.tab[liste.premier].idSuiv;
     printf("val : %c\n", liste.tab[i].val);
-    printf("cle : %d\n", liste.cle);
+    printf("cle : %d\n", liste.cle);*/
     return  0;
 }
