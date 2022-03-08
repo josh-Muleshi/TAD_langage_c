@@ -78,7 +78,7 @@ void inserQueue(ListDC l, char x){
     curseur cel = creerCellule(x);
     cel->suivant = l->dernier;
     l->dernier = cel;
-    l->cle = cel;
+    l->cle = cel; 
     l->size++;
 }
 

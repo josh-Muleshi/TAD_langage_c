@@ -18,7 +18,7 @@ typedef struct listSC{
   curseur premier;
   curseur cle;
   curseur prLibre;
-}listSC ;
+}listSC;
 
 
 /*  IMPLEMENTATION DES PRIMITIVES PAR TABLEAU STATIQUE */
