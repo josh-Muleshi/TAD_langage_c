@@ -14,7 +14,7 @@ void creerPile(Pile *p){
 
 char valeur(Pile *p){
     if(p->size != 0){
-        return p->tab[p->size].val;
+        return p->tab[p->size-1].val;
     }  
     else{
         return ' ';
@@ -36,7 +36,7 @@ void empiler(Pile *p, char v){
 void depiler(Pile *p){
     if (!pileVide(p)){
         p->tab[p->size--].val = NIL;
-        p->tab[p->tab[p->size].precedant].val = p->tab[p->size--].val;
+        p->tab[p->tab[p->size].precedant].val = p->tab[p->size].val;
     }
 }
 void detruirePile(Pile *p){

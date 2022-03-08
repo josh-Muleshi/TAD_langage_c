@@ -7,6 +7,8 @@ int main(){
     empiler(&p, 'b');
     empiler(&p, 'k');
     depiler(&p);
+    depiler(&p);
+    depiler(&p);
     printf("val : %c\n", valeur(&p));
     printf("val : %c\n", p.tab[p.size].val);
     printf("taille : %d\n", p.size);
